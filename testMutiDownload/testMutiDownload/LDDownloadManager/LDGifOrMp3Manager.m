@@ -67,6 +67,7 @@ static LDGifOrMp3Manager *_sg_gitOrMp3Manager = nil;
     if ([gifOrMp3Model fileIsExits]) {
         
         NSLog(@"%@文件已存在，无需下载",[gifOrMp3Model.localPath lastPathComponent]);
+        gifOrMp3Model.progress = 1.0;//进度为1
         gifOrMp3Model.status = LDGifOrMp3StatusFileIsExit;//返回文件已存在
         // 下载完,打印出下载地址
         if ([_delegate respondsToSelector:@selector(LDGifOrMp3ManagerDownloadCompeleted:)]) {

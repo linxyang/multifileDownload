@@ -97,7 +97,7 @@ static NSTimeInterval kTimeoutInterval = 60.0;// 下载超时时间
 
 /// 开始创建下载任务
 - (void)statRequest {
-    NSURL *url = [NSURL URLWithString:self.model.videoUrl];
+    NSURL *url = [NSURL URLWithString:self.model.downloanUrl];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url
                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
                                               timeoutInterval:kTimeoutInterval];

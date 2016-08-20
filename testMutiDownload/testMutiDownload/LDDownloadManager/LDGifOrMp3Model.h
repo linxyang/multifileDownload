@@ -27,10 +27,8 @@ typedef void(^LDGifOrMp3ModelStatusChanged)(LDGifOrMp3Model *model);
 typedef void(^LDGifOrMp3ModelProgressChanged)(LDGifOrMp3Model *model);
 
 @interface LDGifOrMp3Model : NSObject
-@property (nonatomic, copy) NSString *videoId;
-@property (nonatomic, copy) NSString *videoUrl;
-@property (nonatomic, copy) NSString *imageUrl;
-@property (nonatomic, copy) NSString *title;
+/// 要下载文件的链接
+@property (nonatomic, copy) NSString *downloanUrl;
 
 /// 恢复下载要用到的
 @property (nonatomic, strong) NSData *resumeData;
@@ -40,10 +38,13 @@ typedef void(^LDGifOrMp3ModelProgressChanged)(LDGifOrMp3Model *model);
 @property (nonatomic, copy) NSString *progressText;
 /// 下载进度的百分比
 @property (nonatomic, assign) CGFloat progress;
+/// 当前文件下载进度
 @property (nonatomic, assign) LDGifOrMp3Status status;
+/// 下载这个文件的操作
 @property (nonatomic, strong) LDGifOrMp3Operation *operation;
 
 @property (nonatomic, copy) LDGifOrMp3ModelStatusChanged onStatusChanged;
+
 @property (nonatomic, copy) LDGifOrMp3ModelProgressChanged onProgressChanged;
 
 @property (nonatomic, readonly, copy) NSString *statusText;

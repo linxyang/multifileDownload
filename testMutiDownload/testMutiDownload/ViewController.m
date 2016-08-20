@@ -12,6 +12,7 @@
 
 @interface ViewController ()<LDGifOrMp3ManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIProgressView *musicProgress;
 
 /** url */
 @property (nonatomic, strong) NSArray *array;
@@ -64,21 +65,20 @@
     NSMutableArray *videoModels = [[NSMutableArray alloc] init];
     for (NSString *urlStr in self.array) {
         LDGifOrMp3Model *model = [[LDGifOrMp3Model alloc] init];
-        model.videoUrl = [NSString stringWithFormat:@"%@",
+        model.downloanUrl = [NSString stringWithFormat:@"%@",
                           urlStr];
         [videoModels addObject:model];
+        
+        if ([model.downloanUrl isEqualToString:@"http://7u2qr2.com1.z0.glb.clouddn.com/Piano%20Solo.mp3"]) {
+            // 这里监听背影音乐的下载进度
+            model.onProgressChanged = ^(LDGifOrMp3Model *model){
+                // 改变界面的进度
+                self.musicProgress.progress = model.progress;
+            };
+        }
     }
     [LDGifOrMp3Manager shared].delegate = self;
     [[LDGifOrMp3Manager shared] addVideoModels:videoModels];
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    // 一次型开启所有下载
-    for (LDGifOrMp3Model *model in [LDGifOrMp3Manager shared].gifOrMp3Models) {
-        
-        [[LDGifOrMp3Manager shared] startWithVideoModel:model];
-    }
 }
 
 - (void)LDGifOrMp3ManagerDownloadCompeleted:(LDGifOrMp3Model *)model
@@ -98,17 +98,30 @@
     NSLog(@"文件名:%@----文件下载状态:statu:%zd \n 下载状态:%.2f 下载进度:%@",[model.localPath lastPathComponent],model.status,model.progress,model.progressText);
     
     static NSInteger count = 0;
-    // 文件不是已下载完成或文件已存在，则去下载
+    // 文件不是已下载完成或文件已存在，则去下载(由于下载量大，有些文件下载过程中可能会暂停，因此暂停的文件，重新再开启下载)
     if (model.status != LDGifOrMp3StatusCompleted && model.status != LDGifOrMp3StatusFileIsExit) {
         [[LDGifOrMp3Manager shared] startWithVideoModel:model];
         return;
     }
+    // 下载了一个，progressView走一步
     count ++;
     if (count == self.array.count) {
-        count = 16;
+        
+        NSLog(@"全部下载完毕");
+        
     }
+    // 这里是按每一个文件来算进行显示的，每下一个进度+1
     self.progressView.progress = count/(CGFloat)([LDGifOrMp3Manager shared].gifOrMp3Models.count);
 
+}
+- (IBAction)beginDownload:(id)sender {
+    
+    // 一次型开启所有下载
+    for (LDGifOrMp3Model *model in [LDGifOrMp3Manager shared].gifOrMp3Models) {
+        
+        [[LDGifOrMp3Manager shared] startWithVideoModel:model];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

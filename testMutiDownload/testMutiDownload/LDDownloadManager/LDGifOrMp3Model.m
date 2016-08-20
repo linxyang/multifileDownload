@@ -13,17 +13,19 @@
 @implementation LDGifOrMp3Model
 
 - (NSString *)localPath {
-    NSString *pathName = [NSString stringWithFormat:@"%@",[self.videoUrl lastPathComponent]];
+    NSString *pathName = [NSString stringWithFormat:@"%@",[self.downloanUrl lastPathComponent]];
     NSString *cachesPath =  NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
     NSString *filePath = [cachesPath stringByAppendingPathComponent:pathName];
     return filePath;
 }
+
 
 - (void)setProgress:(CGFloat)progress {
     if (_progress != progress) {
         _progress = progress;
         
         if (self.onProgressChanged) {
+            // 实时返回进度变化，供界面显示当前文件进度
             self.onProgressChanged(self);
         } else {
 //            NSLog(@"progress changed block is empty");
@@ -34,7 +36,7 @@
 - (void)setStatus:(LDGifOrMp3Status)status {
     if (_status != status) {
         _status = status;
-        
+        // 实时返回状态，供界面显示当前文件下载状态
         if (self.onStatusChanged) {
             self.onStatusChanged(self);
         }

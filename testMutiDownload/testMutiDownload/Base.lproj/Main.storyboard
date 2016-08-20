@@ -21,20 +21,51 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7pj-pS-z8y">
                                 <rect key="frame" x="40" y="120" width="520" height="2"/>
                             </progressView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="所有文件的下载进度" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wQY-pI-LG2">
+                                <rect key="frame" x="227" y="67" width="147" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="背景音乐的下载进度" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0Y-fJ-lKK">
+                                <rect key="frame" x="227" y="185" width="147" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fqv-kA-4Hc">
+                                <rect key="frame" x="40" y="255" width="520" height="2"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zht-pn-CTI">
+                                <rect key="frame" x="270" y="325" width="60" height="30"/>
+                                <state key="normal" title="开始下载"/>
+                                <connections>
+                                    <action selector="beginDownload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X43-cE-aii"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7pj-pS-z8y" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="1B5-S3-TNA"/>
+                            <constraint firstItem="Fqv-kA-4Hc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="40" id="943-WF-F2K"/>
+                            <constraint firstItem="zht-pn-CTI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JHL-mc-Qoy"/>
+                            <constraint firstItem="7pj-pS-z8y" firstAttribute="top" secondItem="wQY-pI-LG2" secondAttribute="bottom" constant="23" id="OWT-81-3ar"/>
+                            <constraint firstItem="wQY-pI-LG2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OfK-9x-fDw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7pj-pS-z8y" secondAttribute="trailing" constant="20" id="R91-d0-yxw"/>
+                            <constraint firstAttribute="trailing" secondItem="Fqv-kA-4Hc" secondAttribute="trailing" constant="40" id="XHL-DP-v1H"/>
+                            <constraint firstItem="P0Y-fJ-lKK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Z4I-IU-2Cp"/>
+                            <constraint firstItem="zht-pn-CTI" firstAttribute="top" secondItem="Fqv-kA-4Hc" secondAttribute="bottom" constant="68" id="b7a-fA-0C6"/>
+                            <constraint firstItem="Fqv-kA-4Hc" firstAttribute="top" secondItem="P0Y-fJ-lKK" secondAttribute="bottom" constant="40" id="fUi-Dh-s0k"/>
                             <constraint firstItem="7pj-pS-z8y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="ffi-ee-6Op"/>
+                            <constraint firstItem="P0Y-fJ-lKK" firstAttribute="top" secondItem="7pj-pS-z8y" secondAttribute="bottom" constant="63" id="m2g-xs-9Rb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="musicProgress" destination="Fqv-kA-4Hc" id="9km-uy-nMD"/>
                         <outlet property="progressView" destination="7pj-pS-z8y" id="uOA-ry-Tax"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="339" y="213"/>
         </scene>
     </scenes>
 </document>
