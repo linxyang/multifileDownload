@@ -55,6 +55,7 @@ static LDGifOrMp3Manager *_sg_gitOrMp3Manager = nil;
 
 /// 添加所有要下载的模型到下载集合中
 - (void)addVideoModels:(NSArray<LDGifOrMp3Model *> *)gifOrMp3Models {
+    [_gifOrMp3Models removeAllObjects];
     if ([gifOrMp3Models isKindOfClass:[NSArray class]]) {
         [_gifOrMp3Models addObjectsFromArray:gifOrMp3Models];
     }

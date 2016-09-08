@@ -114,6 +114,7 @@
     self.progressView.progress = count/(CGFloat)([LDGifOrMp3Manager shared].gifOrMp3Models.count);
 
 }
+
 - (IBAction)beginDownload:(id)sender {
     
     // 一次型开启所有下载

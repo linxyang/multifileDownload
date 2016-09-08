@@ -21,7 +21,7 @@ BLOCK(); \
 
 static const void *s_ldGifOrMp3ModelKey = "s_ldGifOrMp3ModelKey";
 
-@implementation NSURLSessionTask (VideoModel)
+@implementation NSURLSessionTask (LDGifOrMp3Model)
 
 - (void)setLd_gitOrMp3Model:(LDGifOrMp3Model *)ld_gitOrMp3Model
 {
