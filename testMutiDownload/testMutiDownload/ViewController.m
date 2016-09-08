@@ -77,8 +77,8 @@
             };
         }
     }
-    [LDGifOrMp3Manager shared].delegate = self;
-    [[LDGifOrMp3Manager shared] addVideoModels:videoModels];
+    [LDGifOrMp3Manager shareManager].delegate = self;
+    [[LDGifOrMp3Manager shareManager] addVideoModels:videoModels];
 }
 
 - (void)LDGifOrMp3ManagerDownloadCompeleted:(LDGifOrMp3Model *)model
@@ -100,7 +100,7 @@
     static NSInteger count = 0;
     // 文件不是已下载完成或文件已存在，则去下载(由于下载量大，有些文件下载过程中可能会暂停，因此暂停的文件，重新再开启下载)
     if (model.status != LDGifOrMp3StatusCompleted && model.status != LDGifOrMp3StatusFileIsExit) {
-        [[LDGifOrMp3Manager shared] startWithVideoModel:model];
+        [[LDGifOrMp3Manager shareManager] startWithVideoModel:model];
         return;
     }
     // 下载了一个，progressView走一步
@@ -111,16 +111,16 @@
         
     }
     // 这里是按每一个文件来算进行显示的，每下一个进度+1
-    self.progressView.progress = count/(CGFloat)([LDGifOrMp3Manager shared].gifOrMp3Models.count);
+    self.progressView.progress = count/(CGFloat)([LDGifOrMp3Manager shareManager].gifOrMp3Models.count);
 
 }
 
 - (IBAction)beginDownload:(id)sender {
     
     // 一次型开启所有下载
-    for (LDGifOrMp3Model *model in [LDGifOrMp3Manager shared].gifOrMp3Models) {
+    for (LDGifOrMp3Model *model in [LDGifOrMp3Manager shareManager].gifOrMp3Models) {
         
-        [[LDGifOrMp3Manager shared] startWithVideoModel:model];
+        [[LDGifOrMp3Manager shareManager] startWithVideoModel:model];
     }
     
 }

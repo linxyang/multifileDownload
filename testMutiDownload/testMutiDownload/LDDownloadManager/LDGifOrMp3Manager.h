@@ -20,7 +20,7 @@
 
 @property (nonatomic, readonly, strong) NSArray *gifOrMp3Models;
 
-+ (instancetype)shared;
++ (instancetype)shareManager;
 
 - (void)addVideoModels:(NSArray<LDGifOrMp3Model *> *)gifOrMp3Models;
 /// 开始下载

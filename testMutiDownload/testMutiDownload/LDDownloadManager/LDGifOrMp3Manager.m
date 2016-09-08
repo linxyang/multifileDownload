@@ -25,7 +25,7 @@ static LDGifOrMp3Manager *_sg_gitOrMp3Manager = nil;
 @implementation LDGifOrMp3Manager
 
 
-+ (instancetype)shared {
++ (instancetype)shareManager {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sg_gitOrMp3Manager = [[self alloc] init];
