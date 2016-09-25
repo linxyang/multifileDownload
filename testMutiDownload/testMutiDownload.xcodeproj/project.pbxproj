@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02BEDBF51D982079006F62B4 /* NSURLSessionTask+Download.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BEDBF41D982079006F62B4 /* NSURLSessionTask+Download.m */; };
 		02F1FEF41D64C46D00CD641C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F1FEF31D64C46D00CD641C /* main.m */; };
 		02F1FEF71D64C46D00CD641C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F1FEF61D64C46D00CD641C /* AppDelegate.m */; };
 		02F1FEFA1D64C46D00CD641C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F1FEF91D64C46D00CD641C /* ViewController.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02BEDBF31D982079006F62B4 /* NSURLSessionTask+Download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+Download.h"; sourceTree = "<group>"; };
+		02BEDBF41D982079006F62B4 /* NSURLSessionTask+Download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+Download.m"; sourceTree = "<group>"; };
 		02F1FEEF1D64C46C00CD641C /* testMutiDownload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testMutiDownload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F1FEF31D64C46D00CD641C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		02F1FEF51D64C46D00CD641C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				02F1FF0E1D64C7A900CD641C /* LDGifOrMp3Manager.m */,
 				02F1FF101D64C82F00CD641C /* LDGifOrMp3Model.h */,
 				02F1FF111D64C82F00CD641C /* LDGifOrMp3Model.m */,
+				02BEDBF31D982079006F62B4 /* NSURLSessionTask+Download.h */,
+				02BEDBF41D982079006F62B4 /* NSURLSessionTask+Download.m */,
 			);
 			path = LDDownloadManager;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				02F1FEFA1D64C46D00CD641C /* ViewController.m in Sources */,
 				02F1FF0F1D64C7A900CD641C /* LDGifOrMp3Manager.m in Sources */,
 				02F1FEF71D64C46D00CD641C /* AppDelegate.m in Sources */,
+				02BEDBF51D982079006F62B4 /* NSURLSessionTask+Download.m in Sources */,
 				02F1FF121D64C82F00CD641C /* LDGifOrMp3Model.m in Sources */,
 				02F1FEF41D64C46D00CD641C /* main.m in Sources */,
 			);
@@ -324,6 +330,7 @@
 				02F1FF081D64C46D00CD641C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

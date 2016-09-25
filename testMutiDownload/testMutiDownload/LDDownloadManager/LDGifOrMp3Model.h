@@ -19,8 +19,8 @@ typedef NS_ENUM(NSInteger, LDGifOrMp3Status) {
     LDGifOrMp3StatusCompleted = 3,  // 下载完成
     LDGifOrMp3StatusFailed  = 4,    // 下载失败
     LDGifOrMp3StatusWaiting = 5,    // 等待下载
-    LDGifOrMp3StatusFileIsExit = 6, // 文件已存在
-//    LDGifOrMp3StatusCancel = 6      // 取消下载
+    LDGifOrMp3StatusCancel = 6,     // 取消下载
+    LDGifOrMp3StatusFileIsExit = 7, // 文件已存在
 };
 
 typedef void(^LDGifOrMp3ModelStatusChanged)(LDGifOrMp3Model *model);

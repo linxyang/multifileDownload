@@ -62,23 +62,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSMutableArray *videoModels = [[NSMutableArray alloc] init];
-    for (NSString *urlStr in self.array) {
-        LDGifOrMp3Model *model = [[LDGifOrMp3Model alloc] init];
-        model.downloanUrl = [NSString stringWithFormat:@"%@",
-                          urlStr];
-        [videoModels addObject:model];
-        
-        if ([model.downloanUrl isEqualToString:@"http://7u2qr2.com1.z0.glb.clouddn.com/Piano%20Solo.mp3"]) {
-            // 这里监听背影音乐的下载进度
-            model.onProgressChanged = ^(LDGifOrMp3Model *model){
-                // 改变界面的进度
-                self.musicProgress.progress = model.progress;
-            };
-        }
-    }
-    [LDGifOrMp3Manager shareManager].delegate = self;
-    [[LDGifOrMp3Manager shareManager] addVideoModels:videoModels];
 }
 
 - (void)LDGifOrMp3ManagerDownloadCompeleted:(LDGifOrMp3Model *)model
@@ -100,6 +83,9 @@
     static NSInteger count = 0;
     // 文件不是已下载完成或文件已存在，则去下载(由于下载量大，有些文件下载过程中可能会暂停，因此暂停的文件，重新再开启下载)
     if (model.status != LDGifOrMp3StatusCompleted && model.status != LDGifOrMp3StatusFileIsExit) {
+        if (model.status == LDGifOrMp3StatusCancel) {
+            return;
+        }
         [[LDGifOrMp3Manager shareManager] startWithVideoModel:model];
         return;
     }
@@ -116,13 +102,22 @@
 }
 
 - (IBAction)beginDownload:(id)sender {
-    
-    // 一次型开启所有下载
+   
+        // 一次型开启所有下载
     for (LDGifOrMp3Model *model in [LDGifOrMp3Manager shareManager].gifOrMp3Models) {
         
         [[LDGifOrMp3Manager shareManager] startWithVideoModel:model];
     }
     
+}
+
+- (IBAction)stopAllDownload:(UIButton *)sender {
+    
+    // 取消所有下载
+    for (LDGifOrMp3Model *model in [LDGifOrMp3Manager shareManager].gifOrMp3Models) {
+        
+        [[LDGifOrMp3Manager shareManager] stopWiethVideoModel:model];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -69,6 +69,10 @@
             return @"等待下载";
             break;
         }
+        case LDGifOrMp3StatusCancel:{
+            return @"取消下载";
+            break;
+        }
         case LDGifOrMp3StatusFileIsExit:{
             return @"文件已存在";
             break;

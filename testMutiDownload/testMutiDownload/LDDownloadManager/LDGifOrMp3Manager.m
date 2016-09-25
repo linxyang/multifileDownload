@@ -55,7 +55,14 @@ static LDGifOrMp3Manager *_sg_gitOrMp3Manager = nil;
 
 /// 添加所有要下载的模型到下载集合中
 - (void)addVideoModels:(NSArray<LDGifOrMp3Model *> *)gifOrMp3Models {
+    // 先取消以前所有下载
+    for (LDGifOrMp3Model *model in [LDGifOrMp3Manager shareManager].gifOrMp3Models) {
+        
+        [[LDGifOrMp3Manager shareManager] stopWiethVideoModel:model];
+    }
+    // 移除以前下载模型对象
     [_gifOrMp3Models removeAllObjects];
+    // 添加新的下载对象
     if ([gifOrMp3Models isKindOfClass:[NSArray class]]) {
         [_gifOrMp3Models addObjectsFromArray:gifOrMp3Models];
     }
@@ -126,6 +133,9 @@ static LDGifOrMp3Manager *_sg_gitOrMp3Manager = nil;
             [task.ld_gitOrMp3Model.operation downloadFinished];
         } else if (task.ld_gitOrMp3Model.status == LDGifOrMp3StatusSuspended) {
             task.ld_gitOrMp3Model.status = LDGifOrMp3StatusSuspended;
+        } else if ([error code] == NSURLErrorCancelled) {
+            // 下载取消
+            task.ld_gitOrMp3Model.status = LDGifOrMp3StatusCancel;
         } else if ([error code] < 0) {
             // 网络异常
             task.ld_gitOrMp3Model.status = LDGifOrMp3StatusFailed;

@@ -17,28 +17,6 @@ BLOCK(); \
 [self didChangeValueForKey:KEYPATH];
 
 
-/************************* 下载任务NSURLSessionTask的分类 ***********************************/
-
-static const void *s_ldGifOrMp3ModelKey = "s_ldGifOrMp3ModelKey";
-
-@implementation NSURLSessionTask (LDGifOrMp3Model)
-
-- (void)setLd_gitOrMp3Model:(LDGifOrMp3Model *)ld_gitOrMp3Model
-{
-    objc_setAssociatedObject(self, s_ldGifOrMp3ModelKey, ld_gitOrMp3Model, OBJC_ASSOCIATION_ASSIGN);
-}
-
-- (LDGifOrMp3Model *)ld_gitOrMp3Model
-{
-    return objc_getAssociatedObject(self, s_ldGifOrMp3ModelKey);
-}
-
-
-
-
-@end
-
-
 /************************* 下载操作 ***********************************/
 static NSTimeInterval kTimeoutInterval = 60.0;// 下载超时时间
 

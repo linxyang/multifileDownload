@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -41,12 +41,20 @@
                                     <action selector="beginDownload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X43-cE-aii"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwQ-l5-sKK">
+                                <rect key="frame" x="255" y="365" width="90" height="30"/>
+                                <state key="normal" title="取消所有下载"/>
+                                <connections>
+                                    <action selector="stopAllDownload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Req-EU-yqb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7pj-pS-z8y" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="1B5-S3-TNA"/>
                             <constraint firstItem="Fqv-kA-4Hc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="40" id="943-WF-F2K"/>
                             <constraint firstItem="zht-pn-CTI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JHL-mc-Qoy"/>
+                            <constraint firstItem="GwQ-l5-sKK" firstAttribute="top" secondItem="zht-pn-CTI" secondAttribute="bottom" constant="10" id="N80-Rm-roj"/>
                             <constraint firstItem="7pj-pS-z8y" firstAttribute="top" secondItem="wQY-pI-LG2" secondAttribute="bottom" constant="23" id="OWT-81-3ar"/>
                             <constraint firstItem="wQY-pI-LG2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OfK-9x-fDw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7pj-pS-z8y" secondAttribute="trailing" constant="20" id="R91-d0-yxw"/>
@@ -55,6 +63,7 @@
                             <constraint firstItem="zht-pn-CTI" firstAttribute="top" secondItem="Fqv-kA-4Hc" secondAttribute="bottom" constant="68" id="b7a-fA-0C6"/>
                             <constraint firstItem="Fqv-kA-4Hc" firstAttribute="top" secondItem="P0Y-fJ-lKK" secondAttribute="bottom" constant="40" id="fUi-Dh-s0k"/>
                             <constraint firstItem="7pj-pS-z8y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="ffi-ee-6Op"/>
+                            <constraint firstItem="GwQ-l5-sKK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gsV-cA-ejs"/>
                             <constraint firstItem="P0Y-fJ-lKK" firstAttribute="top" secondItem="7pj-pS-z8y" secondAttribute="bottom" constant="63" id="m2g-xs-9Rb"/>
                         </constraints>
                     </view>
